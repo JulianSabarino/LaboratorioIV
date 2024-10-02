@@ -1,0 +1,11 @@
+<h2>Login</h2>
+<div>
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" [(ngModel)]="usuario.nombre">
+</div>
+<div>
+  <label for="clave">Clave:</label>
+  <input type="password" id="clave" [(ngModel)]="usuario.clave">
+</div>
+<button (click)="ingresar()">Ingresar</button>
+<div *ngIf="errorLogin">Usuario o clave incorrectos.</div>

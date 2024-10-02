@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hangman</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+
+    #game-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #word {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    #hangman {
+      width: 200px;
+      height: 200px;
+      border: 2px solid black;
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    #hangman .head {
+      position: absolute;
+      top: 20px;
+      left: 80px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: black;
+    }
+
+    #hangman .body {
+      position: absolute;
+      top: 50px;
+      left: 80px;
+      width: 10px;
+      height: 80px;
+      background-color: black;
+    }
+
+    #hangman .left-arm {
+      position: absolute;
+      top: 70px;
+      left: 60px;
+      width: 40px;
+      height: 10px;
+      background-color: black;
+      transform: rotate(-45deg);
+    }
+
+    #hangman .right-arm {
+      position: absolute;
+      top: 70px;
+      left: 100px;
+      width: 40px;
+      height: 10px;
+      background-color: black;
+      transform: rotate(45deg);
+    }
+
+    #hangman .left-leg {
+      position: absolute;
+      top: 130px;
+      left: 70px;
+      width: 20px;
+      height: 50px;
+      background-color: black;
+      transform: rotate(-20deg);
+    }
+
+    #hangman .right-leg {
+      position: absolute;
+      top: 130px;
+      left: 90px;
+      width: 20px;
+      height: 50px;
+      background-color: black;
+      transform: rotate(20deg);
+    }
+
+    #guesses-left {
+      margin-bottom: 20px;
+    }
+
+    #letters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    #letters button {
+      padding: 10px 20px;
+      border: 1px solid black;
+      cursor: pointer;
+    }
+
+    #letters button.disabled {
+      cursor: default;
+      opacity: 0.5;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <h1>Hangman</h1>
+    <div id="word"></div>
+    <div id="hangman"></div>
+    <div id="guesses-left">Guesses Left: <span id="guesses">6</span></div>
+    <div id="letters"></div>
+    <div id="message"></div>
+  </div>
+
+  <script>
+    const wordElement = document.getElementById('word');
+    const hangmanElement = document.getElementById('hangman');
+    const guessesLeftElement = document.getElementById('guesses');
+    const lettersElement = document.getElementById('letters');
+    const messageElement = document.getElementById('message');
+
+    let word = '';
+    let guessesLeft = 6;
+    let guessedLetters = [];
+    let hangmanParts = ['head', 'body', 'left-arm', 'right-arm', 'left-leg', 'right-leg'];
+
+    function getRandomWord() {
+      const words = ['hello', 'world', 'javascript', 'programming'];
+      return words[Math.floor(Math.random() * words.length)];
+    }
+
+    function startGame() {
+      word = getRandomWord();
+      guessesLeft = 6;
+      guessedLetters = [];
+      hangmanParts.forEach(part => {
+        const element = document.createElement('div');
+        element.classList.add(part);
+        hangmanElement.appendChild(element);
+      });
+
+      updateWordDisplay();
+      createLetterButtons();
+      messageElement.textContent = '';
+    }
+
+    function updateWordDisplay() {
+      wordElement.textContent = '';
+      for (let i = 0; i < word.length; i++) {
+        const letterSpan = document.createElement('span');
+        if (guessedLetters.includes(word[i].toLowerCase())) {
+          letterSpan.textContent = word[i];
+        } else {
+          letterSpan.textContent = '_';
+        }
+        wordElement.appendChild(letterSpan);
+      }
+    }
+
+    function createLetterButtons() {
+      lettersElement.innerHTML = '';
+      const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+      for (let i = 0; i < alphabet.length; i++) {
+        const button = document.createElement('button');
+        button.textContent = alphabet[i];
+        button.addEventListener('click', handleLetterClick);
+        lettersElement.appendChild(button);
+      }
+    }
+
+    function handleLetterClick(event) {
+      const letter = event.target.textContent.toLowerCase();
+      if (guessedLetters.includes(letter)) {
+        return;
+      }
+
+      guessedLetters.push(letter);
+      event.target.classList.add('disabled');
+
+      if (!word.toLowerCase().includes(letter)) {
+        guessesLeft--;
+        guessesLeftElement.textContent = guessesLeft.toString();
+        hangmanParts[guessesLeft].classList.add('visible');
+      }
+
+      updateWordDisplay();
+
+      if (guessesLeft === 0) {
+        messageElement.textContent = `You lost! The word was: ${word}`;
+      } else if (wordElement.textContent === word) {
+        messageElement.textContent = 'You win!';
+      }
+    }
+
+    startGame();
+  </script>
+</body>
+</html>

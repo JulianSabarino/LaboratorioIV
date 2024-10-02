@@ -1,0 +1,25 @@
+<h2 class="color">Calculadora de Edades</h2>
+
+<div>
+  <label for="edadUno">Edad 1:</label>
+  <input type="number" id="edadUno" [(ngModel)]="edadUno">
+</div>
+
+<div>
+  <label for="edadDos">Edad 2:</label>
+  <input type="number" id="edadDos" [(ngModel)]="edadDos">
+</div>
+
+<button (click)="calcular()">Calcular</button>
+<button (click)="limpiar()">Limpiar</button>
+
+<div *ngIf="mostrarResultados">
+  <div>
+    <label for="suma">Suma:</label>
+    <input type="text" id="suma" readonly [value]="suma">
+  </div>
+  <div>
+    <label for="promedio">Promedio:</label>
+    <input type="text" id="promedio" readonly [value]="promedio">
+  </div>
+</div>
