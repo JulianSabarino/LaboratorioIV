@@ -9,5 +9,10 @@ export const routes: Routes = [
     path: 'who-we-are',
     loadComponent: ()=> import('../home/who-we-are/who-we-are.component').then(m=>m.WhoWeAreComponent)
 },
+{
+    path: 'games',
+    loadComponent: ()=> import('../home/games/games.component').then(m=>m.GamesComponent)
+},
+
 
 ];

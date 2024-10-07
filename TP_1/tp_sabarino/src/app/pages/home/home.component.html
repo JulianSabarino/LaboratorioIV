@@ -1,60 +1,76 @@
-<main>
-  
-    <div class="container marketing">
- 
-    <div _ngcontent-ng-c1973882366="" class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
-        <div _ngcontent-ng-c1973882366="" class="col-lg-6 px-0">
-            <h1 _ngcontent-ng-c1973882366="" class="display-4 fst-italic">Pasa el rato</h1>
-            <p _ngcontent-ng-c1973882366="" class="lead my-3"> Completa los tres juegos y gana un premio en el siguiente evento. </p>
-        </div>
+<main class="container">
+  <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+    <div class="col-lg-6 px-0">
+      <h1 class="display-4 fst-italic">Colmenas & Dragones</h1>
+      <p class="lead my-3">
+          Comunidad de juegos de mesa, rol y mtg commander casual.
+      </p>
     </div>
+  </div>
 
-      <hr class="featurette-divider">
-  
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading fw-normal lh-1">Tic Tac Toe: <span class="text-body-secondary">Uno de los primeros juegos que aprendemos a jugar.</span></h2>
-          <p class="lead">Se cree que los chinos lo jugaban en la época de Confucio (500ac) y hay tableros tallados en los asientos de algunas Catedrales de Inglaterra donde éste juego se hizo popular en el siglo XIV. En la antigua Roma podemos encontrar un antecesor a este juego "el terni lapilli".</p>
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static clickable-div" (click)="RootPath('home/games')">
+          <h3 class="mb-0">Pasar el Rato</h3>
+          <div class="mb-1 text-body-secondary">Gana juegos gana premios</div>
+          <p class="card-text mb-auto">
+              Veamos a traves de la historia de los juegos con 5 juegos que cambiaron la historia y que todos escucharon hablar alguna vez.
+          </p>
         </div>
-        <div class="col-md-5">
-          <app-tic-tac-toe></app-tic-tac-toe>
-        </div>
-      </div>
-  
-      <hr class="featurette-divider">
-  
-      <div class="row featurette">
-        <div class="col-md-7 order-md-2">
-          <h2 class="featurette-heading fw-normal lh-1">The Hangedman <span class="text-body-secondary">Un ejercicio util para quienes quieran aprender un idioma.</span></h2>
-          <p class="lead">El ahorcado es un juego, originalmente de lápiz y papel, para dos o más jugadores. Un jugador piensa en una palabra, frase u oración y el otro trata de adivinarla según lo que sugiere por letras o dentro de un cierto número de oportunidades.</p>
-        </div>
-        <div class="col-md-5 order-md-1">
-          <app-hangedman></app-hangedman>
+        <div class="col-auto d-none d-lg-block">
+          <img src="/assets/home/bgames.jpg" class="bd-placeholder-img" width="200" height="250">
         </div>
       </div>
-  
-      <hr class="featurette-divider">
-  
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-body-secondary">Checkmate.</span></h2>
-          <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+
+    </div>
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static clickable-div" (click)="RootPath('home/games')">
+          <h3 class="mb-0">Commander Casual</h3>
+          <div class="mb-1 text-body-secondary">Nuestros Mazos</div>
+          <p class="mb-auto">
+              Una lista de los mazos que usamos y prestamos en nuestras partidas personales de MTG Commander
+          </p>
         </div>
-        <div class="col-md-5">
-          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"></rect><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg>
+        <div class="col-auto d-none d-lg-block">
+          <img src="/assets/home/mtgdecks.png" class="bd-placeholder-img" width="200" height="250">
         </div>
       </div>
-  
-      <hr class="featurette-divider">
-  
-      <!-- /END THE FEATURETTES -->
-  
-    </div><!-- /.container -->
-  
-  
-    <!-- FOOTER -->
-    <footer class="container">
-      <p class="float-end"><a href="#">Back to top</a></p>
-      <p>© 2017–2024 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-    </footer>
-  </main>
+    </div>
+  </div>
+
+
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static clickable-div" (click)="RootPath('home/games')">
+          <h3 class="mb-0">Pauper Commander</h3>
+          <div class="mb-1 text-body-secondary">Partidas para nuevos y viejos jugadores</div>
+          <p class="card-text mb-auto">
+              Unite a nuestros sabados de Pauper Commander. Podes venir a aprender a jugar o a simplemente divertirte, no necesitas mazo propio.
+          </p>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src="/assets/home/mtgpauper.jpg" class="bd-placeholder-img" width="200" height="250">
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-6">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static clickable-div" (click)="RootPath('home/games')">
+          <h3 class="mb-0">Eventos</h3>
+          <div class="mb-1 text-body-secondary">Calendario y Fotos</div>
+          <p class="mb-auto">
+              Algunos de los eventos que ya hicimos y una lista de las cosas que todavia queremos hacer.
+          </p>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src="/assets/home/bgevent.jpg" class="bd-placeholder-img" width="200" height="250">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>

@@ -12,12 +12,18 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideFirebaseApp(() =>
       initializeApp(
-        {"projectId":"colmenasdragones",
-          "appId":"1:952973006976:web:e2ef32bf9f3b4d4ccb6e65",
-          "storageBucket":"colmenasdragones.appspot.com",
-          "apiKey":"AIzaSyDMTqAf3uZ2b9vfX7IFw34fTSqTRfMAUSo",
-          "authDomain":"colmenasdragones.firebaseapp.com",
-          "messagingSenderId":"952973006976"})),
+        { apiKey: "AIzaSyCe4R9-krLhFzhXUYQp2C2E2-MlZ25dVek",
+          authDomain: "colmenitas.firebaseapp.com",
+          projectId: "colmenitas",
+          storageBucket: "colmenitas.appspot.com",
+          messagingSenderId: "885265358866",
+          appId: "1:885265358866:web:05fc816ab0bcd8155038cb"})),
            provideAuth(() => getAuth()),
-           provideFirestore(() => getFirestore())]
+           provideFirestore(() => getFirestore()), provideFirebaseApp(() => initializeApp(
+            { apiKey: "AIzaSyCe4R9-krLhFzhXUYQp2C2E2-MlZ25dVek",
+              authDomain: "colmenitas.firebaseapp.com",
+              projectId: "colmenitas",
+              storageBucket: "colmenitas.appspot.com",
+              messagingSenderId: "885265358866",
+              appId: "1:885265358866:web:05fc816ab0bcd8155038cb"})), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())]
 };

@@ -26,10 +26,18 @@ export class AuthComponent {
     this.rooter.navigate([path]);
   }
 
-  login()
+  async login()
   {
-    console.log(this.form);
-    this.authService.login(this.form.value.email!,this.form.value.password!);
+    await this.authService.login(this.form.value.email!,this.form.value.password!);
+    if(this.authService.user)
+    {
+      this.RootPath('home');
+    }
+    else
+    {
+      console.log("error")
+    }
+    
   }
 
 }

@@ -1,9 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-hangedman',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './hangedman.component.html',
   styleUrl: './hangedman.component.scss'
 })

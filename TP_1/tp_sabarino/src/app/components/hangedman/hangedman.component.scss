@@ -22,7 +22,16 @@
     font-size: 1em;
     cursor: pointer;
   }
+
+  .keyboard button:active
+  {
+    transform: scale(0.9);
+  }
   
   .keyboard button:hover {
     background-color: #e0e0e0;
+  }
+
+  .hanged-man img{
+    width: 100px;
   }

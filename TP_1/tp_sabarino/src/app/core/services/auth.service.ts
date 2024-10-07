@@ -42,7 +42,7 @@ export class AuthService {
     await signInWithEmailAndPassword(this.auth, email!, password!).then(async res => {
       this.user = res.user
       this.setUserInfo(this.user.email);
-      console.log("Logueadisimo");
+      console.log(res);
 
       }).catch(err => {
         console.log("No Logueadisimo");
@@ -71,6 +71,11 @@ export class AuthService {
       email: email,
       date: Timestamp.fromDate(date)
     })
+  }
+
+  getUserLogged()
+  {
+    return this.user;
   }
 
 }
